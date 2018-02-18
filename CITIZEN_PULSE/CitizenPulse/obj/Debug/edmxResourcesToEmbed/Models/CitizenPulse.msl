@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CITIZENPULSEModelStoreContainer" CdmEntityContainer="CITIZENPULSEEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Cat_createdon" ColumnName="Cat_createdon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="options">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.option">
+        <MappingFragment StoreEntitySet="options">
+          <ScalarProperty Name="optionId" ColumnName="optionId" />
+          <ScalarProperty Name="Questionid" ColumnName="Questionid" />
+          <ScalarProperty Name="op_text" ColumnName="op_text" />
+          <ScalarProperty Name="op_isdeleted" ColumnName="op_isdeleted" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="op_createdon" ColumnName="op_createdon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Questionid" ColumnName="Questionid" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="Q_text" ColumnName="Q_text" />
+          <ScalarProperty Name="order" ColumnName="order" />
+          <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+          <ScalarProperty Name="typeId" ColumnName="typeId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Q_createdon" ColumnName="Q_createdon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sur_answer">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.Sur_answer">
+        <MappingFragment StoreEntitySet="Sur_answer">
+          <ScalarProperty Name="Answerid" ColumnName="Answerid" />
+          <ScalarProperty Name="responseId" ColumnName="responseId" />
+          <ScalarProperty Name="Questionid" ColumnName="Questionid" />
+          <ScalarProperty Name="selected_op" ColumnName="selected_op" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sur_response">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.sur_response">
+        <MappingFragment StoreEntitySet="sur_response">
+          <ScalarProperty Name="responseId" ColumnName="responseId" />
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="Respondon" ColumnName="Respondon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Surveys">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.Survey">
+        <MappingFragment StoreEntitySet="Survey">
+          <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="Duration_days_" ColumnName="Duration(days)" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="Sur_createdon" ColumnName="Sur_createdon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="CITIZENPULSEModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
