@@ -2,8 +2,8 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CITIZENPULSEModelStoreContainer" CdmEntityContainer="CITIZENPULSEEntities">
     <EntitySetMapping Name="Categories">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.Category">
-        <MappingFragment StoreEntitySet="Category">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.Category)">
+        <MappingFragment StoreEntitySet="Categories">
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="Cat_Name" ColumnName="Cat_Name" />
           <ScalarProperty Name="customerId" ColumnName="customerId" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="options">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.option">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.option)">
         <MappingFragment StoreEntitySet="options">
           <ScalarProperty Name="optionId" ColumnName="optionId" />
           <ScalarProperty Name="Questionid" ColumnName="Questionid" />
@@ -24,8 +24,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Questions">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.Question">
-        <MappingFragment StoreEntitySet="Question">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.Question)">
+        <MappingFragment StoreEntitySet="Questions">
           <ScalarProperty Name="Questionid" ColumnName="Questionid" />
           <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
           <ScalarProperty Name="Q_text" ColumnName="Q_text" />
@@ -38,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sur_answer">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.Sur_answer">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.Sur_answer)">
         <MappingFragment StoreEntitySet="Sur_answer">
           <ScalarProperty Name="Answerid" ColumnName="Answerid" />
           <ScalarProperty Name="responseId" ColumnName="responseId" />
@@ -48,7 +48,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sur_response">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.sur_response">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.sur_response)">
         <MappingFragment StoreEntitySet="sur_response">
           <ScalarProperty Name="responseId" ColumnName="responseId" />
           <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
@@ -57,21 +57,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Surveys">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.Survey">
-        <MappingFragment StoreEntitySet="Survey">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.Survey)">
+        <MappingFragment StoreEntitySet="Surveys">
           <ScalarProperty Name="SurveyId" ColumnName="SurveyId" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="categoryId" ColumnName="categoryId" />
           <ScalarProperty Name="customerId" ColumnName="customerId" />
-          <ScalarProperty Name="Duration_days_" ColumnName="Duration(days)" />
+          <ScalarProperty Name="Duration_days_" ColumnName="Duration_days_" />
           <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="Sur_createdon" ColumnName="Sur_createdon" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="users">
-      <EntityTypeMapping TypeName="CITIZENPULSEModel.user">
-        <MappingFragment StoreEntitySet="user">
+      <EntityTypeMapping TypeName="IsTypeOf(CITIZENPULSEModel.user)">
+        <MappingFragment StoreEntitySet="users">
           <ScalarProperty Name="userid" ColumnName="userid" />
           <ScalarProperty Name="fname" ColumnName="fname" />
           <ScalarProperty Name="Lname" ColumnName="Lname" />
