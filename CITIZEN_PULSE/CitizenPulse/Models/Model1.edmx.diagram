@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9c17ced27d5e488a9b061d49d3257bf2" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="CITIZENPULSEModel.Category" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.Customer" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.option" Width="1.5" PointX="12" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.Question" Width="1.5" PointX="9.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.Sur_answer" Width="1.5" PointX="12" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.sur_response" Width="1.5" PointX="9.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.Survey" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CITIZENPULSEModel.user" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Category_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Survey_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Customer_user" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_options_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Question_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Survey_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_options_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Question_Survey" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Sur_answer_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_Sur_answer_sur_response" ManuallyRouted="false" />
+        <AssociationConnector Association="CITIZENPULSEModel.FK_sur_response_Survey" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -15,8 +15,8 @@ namespace WebApplication1.Models
     public partial class Sur_answer
     {
         public int Answerid { get; set; }
-        public Nullable<int> responseId { get; set; }
-        public Nullable<int> Questionid { get; set; }
+        public int responseId { get; set; }
+        public int Questionid { get; set; }
         public string selected_op { get; set; }
     
         public virtual Question Question { get; set; }

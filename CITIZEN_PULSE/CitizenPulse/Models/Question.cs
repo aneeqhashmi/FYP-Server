@@ -22,14 +22,15 @@ namespace WebApplication1.Models
         }
     
         public int Questionid { get; set; }
-        public Nullable<int> SurveyId { get; set; }
+        public int SurveyId { get; set; }
         public string Q_text { get; set; }
         public Nullable<int> order { get; set; }
         public Nullable<bool> Isdeleted { get; set; }
-        public Nullable<int> typeId { get; set; }
-        public Nullable<int> customerId { get; set; }
+        public int typeId { get; set; }
+        public int customerId { get; set; }
         public Nullable<System.DateTime> Q_createdon { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<option> options { get; set; }
         public virtual Survey Survey { get; set; }

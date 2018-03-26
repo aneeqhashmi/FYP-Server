@@ -22,9 +22,10 @@ namespace WebApplication1.Models
     
         public int categoryId { get; set; }
         public string Cat_Name { get; set; }
-        public Nullable<int> customerId { get; set; }
+        public int customerId { get; set; }
         public Nullable<System.DateTime> Cat_createdon { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Survey> Surveys { get; set; }
     }

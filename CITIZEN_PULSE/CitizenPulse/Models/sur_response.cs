@@ -21,8 +21,8 @@ namespace WebApplication1.Models
         }
     
         public int responseId { get; set; }
-        public Nullable<int> SurveyId { get; set; }
-        public Nullable<System.DateTime> Respondon { get; set; }
+        public int SurveyId { get; set; }
+        public System.DateTime Respondon { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Sur_answer> Sur_answer { get; set; }

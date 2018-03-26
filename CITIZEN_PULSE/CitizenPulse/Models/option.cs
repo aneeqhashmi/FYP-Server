@@ -15,12 +15,13 @@ namespace WebApplication1.Models
     public partial class option
     {
         public int optionId { get; set; }
-        public Nullable<int> Questionid { get; set; }
+        public int Questionid { get; set; }
         public string op_text { get; set; }
         public Nullable<bool> op_isdeleted { get; set; }
-        public Nullable<int> customerId { get; set; }
+        public int customerId { get; set; }
         public Nullable<System.DateTime> op_createdon { get; set; }
     
+        public virtual Customer Customer { get; set; }
         public virtual Question Question { get; set; }
     }
 }
