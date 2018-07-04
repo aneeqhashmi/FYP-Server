@@ -1,0 +1,41 @@
+﻿@model  IEnumerable<WebApplication1.Models.Question>
+
+@{
+    ViewBag.Title = "Generate_form2";
+}
+<h3>@ViewBag.Message</h3>
+
+<h2>Generate_form2</h2>
+<table class="table">
+    <tr>
+
+
+        <th>
+            @Html.DisplayNameFor(model => model.Questionid)
+
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Q_text)
+
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Questionid)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Q_text)
+            </td>
+
+
+        </tr>
+    }
+    
+</table>

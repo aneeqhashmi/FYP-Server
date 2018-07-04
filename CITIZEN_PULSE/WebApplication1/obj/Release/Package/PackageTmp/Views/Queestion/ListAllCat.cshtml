@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebApplication1.Models.Category>
+
+@using WebApplication1.Models;
+   
+
+<h2 class="back">Survey Categories</h2>
+@foreach (var item in Model)
+{
+  <h3><b> @Html.ActionLink(item.Cat_Name, "categorized_sur" ,"Queestion",new { categoryid = item.categoryId },null)</b></h3>
+   
+
+    <br />
+}
+
+<br/>
+<div>@Html.ActionLink("Back to List", "Welcome", "user")
+</div>

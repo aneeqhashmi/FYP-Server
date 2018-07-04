@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebApplication1.Models.sur_response>
+
+<h3>Total Response for this Survey: @ViewBag.show</h3>
+
+
+@foreach (var item in Model)
+{
+    @Html.ActionLink(item.responseId.ToString(), "Answers", "SurResponse", new { responseid = item.responseId }, null)
+    
+
+    <br />
+}
+<div>
+    @Html.ActionLink("Back to List", "Welcome", "user")
+
+
+</div>

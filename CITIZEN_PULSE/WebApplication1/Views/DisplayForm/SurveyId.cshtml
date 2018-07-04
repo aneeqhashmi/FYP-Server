@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.Survey
+
+@{
+    ViewBag.Title = "SurveyId";
+}
+
+<h2 class="back">Check Survey form</h2>
+
+@using (Html.BeginForm())
+{
+<label>Enter Survey Id:</label>    @Html.EditorFor(surr => surr.SurveyId );
+   <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </div>
+    @Html.ActionLink("Log out", "logout", "user", routeValues: null, htmlAttributes: new { id = "logoutLink" })
+
+
+}

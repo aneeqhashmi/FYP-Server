@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebApplication1.Models.Survey>
+
+@using WebApplication1.Models;
+
+@{
+    ViewBag.Title = "";
+}
+
+<h2 class="back">Survey List</h2>
+@foreach (var item in Model)
+{
+<h3>  <b>@Html.ActionLink(item.Name, "Generate_form2", "Queestion", new { surveyId = item.SurveyId }, null)</b> </h3>
+    <br />
+}

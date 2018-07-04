@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApplication1.Models.Sur_answer>
+
+<table class="table">
+<tr>
+
+
+    <th>
+       QUESTION ID'S
+
+    </th>
+
+    <th>
+        SELECTED OPTIONS
+ </th>
+</tr>
+
+@foreach (var item in Model)
+
+{
+    <tr>
+
+        <td>
+             @Html.DisplayFor(modelItem => item.Questionid)
+          </td>
+            
+            <td>
+               @Html.DisplayFor(modelItem => item.selected_op)
+        </td>
+    </tr>
+}
+
+    </table>
+<div>
+    @Html.ActionLink("Back to List", "Welcome", "user")
+</div>

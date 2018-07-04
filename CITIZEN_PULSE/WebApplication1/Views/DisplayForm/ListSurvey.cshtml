@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplication1.Models.Survey>
+
+
+<h3>Total surveys You Have Created: @ViewBag.show</h3>
+
+
+<h2 class="back"> your Survey  List</h2>
+
+<table class="table">
+<tr>
+
+
+    <th>
+        SURVEY LIST
+
+    </th>
+
+    <th>
+        RESPONSE
+  </th>
+</tr>
+
+
+
+@foreach (var item in Model)
+{
+
+    <tr>
+    
+   <td>
+         @Html.ActionLink(item.Name, "Generate_form2", "Queestion", new { surveyId = item.SurveyId }, null)
+    </td>
+    <td>
+    @Html.ActionLink("=>"+item.Name+"  Response", "response", "SurResponse", new { surveyId = item.SurveyId }, null)
+
+    </td>
+        </tr>
+        <br />
+}
+    </table>

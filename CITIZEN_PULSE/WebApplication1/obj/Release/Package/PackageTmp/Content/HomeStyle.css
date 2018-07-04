@@ -1,0 +1,69 @@
+﻿body {
+font-family: Arial, Helvetica, sans-serif;
+
+
+
+
+}
+#nav {
+width: 100%;
+height: 650px;
+background: url(qw2.jpg);
+background-size: cover;
+
+
+}
+
+
+#nav_wrapper{
+    height: 100px;
+    width: 1320px;
+    background:#7c9844;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    opacity: 0.8;
+    filter: alpha (opacity=80);
+    text-align: center;
+ 
+}
+#nav_wrapper  ul li {
+list-style: none;
+display: inline;
+padding: 30px;
+font-weight: bold;
+
+}
+#nav_wrapper a{
+    color: white;
+    text-decoration: none;
+    padding: 30px;
+}
+
+#nav_wrapper ul li:hover{
+
+    background:#FFEB3B;
+    transition: all 0.45s;
+}
+#move{
+
+font-family:cursive;
+    font-size: 32px;
+    font-weight: bold;
+    color: yellow;
+text-align: center;
+ height: 100px;
+    width: 1200px;
+    background:#003f80;
+        margin-left: auto;
+    margin-right: auto;
+margin-top: 10px;
+ opacity: 0.5;
+    filter: alpha (opacity=50);
+    padding-top: 150px;
+
+    padding-bottom: 90px;
+    border-style: groove;
+    word-spacing: 1em;
+}
+

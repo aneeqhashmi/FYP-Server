@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CITIZENPULSEModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="Int32" Nullable="false" />
+    <Property Name="Cat_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="Cat_createdon" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Category_Customer" FromRole="Category" ToRole="Customer" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Survey_Category" FromRole="Category" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="Int32" Nullable="false" />
+    <Property Name="occupation" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="userid" Type="Int32" />
+    <Property Name="createdOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Categories" Relationship="Self.FK_Category_Customer" FromRole="Customer" ToRole="Category" />
+    <NavigationProperty Name="user" Relationship="Self.FK_Customer_user" FromRole="Customer" ToRole="user" />
+    <NavigationProperty Name="options" Relationship="Self.FK_options_Customer" FromRole="Customer" ToRole="options" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Customer" FromRole="Customer" ToRole="Question" />
+    <NavigationProperty Name="Surveys" Relationship="Self.FK_Survey_Customer" FromRole="Customer" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="option">
+    <Key>
+      <PropertyRef Name="optionId" />
+    </Key>
+    <Property Name="optionId" Type="Int32" Nullable="false" />
+    <Property Name="Questionid" Type="Int32" />
+    <Property Name="op_text" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="op_isdeleted" Type="Boolean" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="op_createdon" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_options_Customer" FromRole="options" ToRole="Customer" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_options_Question" FromRole="options" ToRole="Question" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Questionid" />
+    </Key>
+    <Property Name="Questionid" Type="Int32" Nullable="false" />
+    <Property Name="SurveyId" Type="Int32" />
+    <Property Name="Q_text" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="order" Type="Int32" />
+    <Property Name="Isdeleted" Type="Boolean" />
+    <Property Name="typeId" Type="Int32" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="Q_createdon" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Question_Customer" FromRole="Question" ToRole="Customer" />
+    <NavigationProperty Name="options" Relationship="Self.FK_options_Question" FromRole="Question" ToRole="options" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Question_Survey" FromRole="Question" ToRole="Survey" />
+    <NavigationProperty Name="Sur_answer" Relationship="Self.FK_Sur_answer_Question" FromRole="Question" ToRole="Sur_answer" />
+  </EntityType>
+  <EntityType Name="Sur_answer">
+    <Key>
+      <PropertyRef Name="Answerid" />
+    </Key>
+    <Property Name="Answerid" Type="Int32" Nullable="false" />
+    <Property Name="responseId" Type="Int32" />
+    <Property Name="Questionid" Type="Int32" />
+    <Property Name="selected_op" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Sur_answer_Question" FromRole="Sur_answer" ToRole="Question" />
+    <NavigationProperty Name="sur_response" Relationship="Self.FK_Sur_answer_sur_response" FromRole="Sur_answer" ToRole="sur_response" />
+  </EntityType>
+  <EntityType Name="sur_response">
+    <Key>
+      <PropertyRef Name="responseId" />
+    </Key>
+    <Property Name="responseId" Type="Int32" Nullable="false" />
+    <Property Name="SurveyId" Type="Int32" />
+    <Property Name="Respondon" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Sur_answer" Relationship="Self.FK_Sur_answer_sur_response" FromRole="sur_response" ToRole="Sur_answer" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_sur_response_Survey" FromRole="sur_response" ToRole="Survey" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="SurveyId" />
+    </Key>
+    <Property Name="SurveyId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="Duration_days_" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Sur_createdon" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Survey_Category" FromRole="Survey" ToRole="Category" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Survey_Customer" FromRole="Survey" ToRole="Customer" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Question_Survey" FromRole="Survey" ToRole="Question" />
+    <NavigationProperty Name="sur_response" Relationship="Self.FK_sur_response_Survey" FromRole="Survey" ToRole="sur_response" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" />
+    <Property Name="fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="gender" Type="Int32" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK_Customer_user" FromRole="user" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Category_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Category" Type="Self.Category" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="Category">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Survey_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_user">
+    <End Role="user" Type="Self.user" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="userid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_options_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="options" Type="Self.option" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="options">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Survey_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Survey" Type="Self.Survey" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="Survey">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_options_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="options" Type="Self.option" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Questionid" />
+      </Principal>
+      <Dependent Role="options">
+        <PropertyRef Name="Questionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Survey">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="0..1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyId" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="SurveyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sur_answer_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="0..1" />
+    <End Role="Sur_answer" Type="Self.Sur_answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Questionid" />
+      </Principal>
+      <Dependent Role="Sur_answer">
+        <PropertyRef Name="Questionid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sur_answer_sur_response">
+    <End Role="sur_response" Type="Self.sur_response" Multiplicity="0..1" />
+    <End Role="Sur_answer" Type="Self.Sur_answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sur_response">
+        <PropertyRef Name="responseId" />
+      </Principal>
+      <Dependent Role="Sur_answer">
+        <PropertyRef Name="responseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sur_response_Survey">
+    <End Role="Survey" Type="Self.Survey" Multiplicity="0..1" />
+    <End Role="sur_response" Type="Self.sur_response" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Survey">
+        <PropertyRef Name="SurveyId" />
+      </Principal>
+      <Dependent Role="sur_response">
+        <PropertyRef Name="SurveyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CITIZENPULSEEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="options" EntityType="Self.option" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Sur_answer" EntityType="Self.Sur_answer" />
+    <EntitySet Name="sur_response" EntityType="Self.sur_response" />
+    <EntitySet Name="Surveys" EntityType="Self.Survey" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_Category_Customer" Association="Self.FK_Category_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Category" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Survey_Category" Association="Self.FK_Survey_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_user" Association="Self.FK_Customer_user">
+      <End Role="user" EntitySet="users" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_options_Customer" Association="Self.FK_options_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="options" EntitySet="options" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Customer" Association="Self.FK_Question_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Survey_Customer" Association="Self.FK_Survey_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Survey" EntitySet="Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_options_Question" Association="Self.FK_options_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="options" EntitySet="options" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Survey" Association="Self.FK_Question_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="Question" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sur_answer_Question" Association="Self.FK_Sur_answer_Question">
+      <End Role="Question" EntitySet="Questions" />
+      <End Role="Sur_answer" EntitySet="Sur_answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sur_answer_sur_response" Association="Self.FK_Sur_answer_sur_response">
+      <End Role="sur_response" EntitySet="sur_response" />
+      <End Role="Sur_answer" EntitySet="Sur_answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sur_response_Survey" Association="Self.FK_sur_response_Survey">
+      <End Role="Survey" EntitySet="Surveys" />
+      <End Role="sur_response" EntitySet="sur_response" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
